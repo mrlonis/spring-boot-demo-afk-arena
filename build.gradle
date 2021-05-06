@@ -88,6 +88,7 @@ build {
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -96,6 +97,7 @@ dependencies {
 
     implementation 'com.microsoft.sqlserver:mssql-jdbc:7.0.0.jre8'
     implementation 'com.zaxxer:HikariCP'
+    implementation "io.springfox:springfox-boot-starter:3.0.0"
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

@@ -20,6 +20,6 @@ public class AfkArenaHeroesService {
     }
 
     public List<AfkArenaHeroes> getAll() {
-        return afkArenaHeroesRepository.getAll();
+        return afkArenaHeroesRepository.findAll();
     }
 }
