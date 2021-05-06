@@ -1,4 +1,4 @@
-package com.mrlonis.springdataoperations;
+package com.mrlonis.springbootdemoafkarena;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,9 +7,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpringDataOperationsApplication.class)
+@SpringBootTest(classes = SpringBootDemoAFKArenaApplication.class)
 @ActiveProfiles("test")
-public class SpringDataOperationsApplicationTests {
+public class SpringBootDemoAFKArenaApplicationTests {
 
     @Test
     public void contextLoads() {

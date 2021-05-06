@@ -1,4 +1,4 @@
-package com.mrlonis.springdataoperations.entities;
+package com.mrlonis.springbootdemoafkarena.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

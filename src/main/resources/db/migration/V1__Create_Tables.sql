@@ -80,29 +80,3 @@ VALUES
     ('Daimon', 'A', 1, 0),
     ('Theowyn', 'L+', 0, 0),
     ('Silas', 'E+', 0, 1);
-
-CREATE TABLE GenshinImpact_CharacterExpLookup
-(
-    LookupId bigint NOT NULL IDENTITY ( 1,1 ) ,
-    LevelRangeMin bigint NOT NULL ,
-    LevelRangeMax bigint NOT NULL ,
-    HeroesWit bigint NOT NULL ,
-    AdventurersExperience bigint NOT NULL ,
-    WanderersAdvice bigint NOT NULL ,
-    ExpNeeded bigint NOT NULL ,
-    ExpFromEnemies bigint NOT NULL ,
-    Mora bigint NOT NULL ,
-    CONSTRAINT GenshinImpact_CharacterExpLookup_PrimaryKey PRIMARY KEY  CLUSTERED (LookupId ASC)
-)
-GO
-
-INSERT INTO GenshinImpact_CharacterExpLookup
-    (LevelRangeMin, LevelRangeMax, HeroesWit, AdventurersExperience, WanderersAdvice, ExpNeeded, ExpFromEnemies, Mora)
-VALUES
-    (1, 20, 6, 0, 0, 120175, 175, 24000),
-    (20, 40, 28, 3, 3, 578325, 325, 115600),
-    (40, 50, 28, 3, 4, 579100, 100, 115800),
-    (50, 60, 42, 2, 4, 854125, 125, 170800),
-    (60, 70, 59, 3, 0, 1195925, 925, 239000),
-    (70, 80, 80, 2, 1, 1611875, 875, 322200),
-    (80, 90, 171, 0, 3, 3423125, 125, 684600);

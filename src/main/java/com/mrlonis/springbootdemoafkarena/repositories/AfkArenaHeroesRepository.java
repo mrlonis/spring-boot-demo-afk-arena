@@ -1,6 +1,6 @@
-package com.mrlonis.springdataoperations.repositories;
+package com.mrlonis.springbootdemoafkarena.repositories;
 
-import com.mrlonis.springdataoperations.entities.AfkArenaHeroes;
+import com.mrlonis.springbootdemoafkarena.entities.AfkArenaHeroes;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

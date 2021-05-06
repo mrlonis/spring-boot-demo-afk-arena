@@ -1,8 +1,8 @@
-package com.mrlonis.springdataoperations.services;
+package com.mrlonis.springbootdemoafkarena.services;
 
-import com.mrlonis.springdataoperations.entities.AfkArenaHeroes;
-import com.mrlonis.springdataoperations.repositories.AfkArenaHeroesRepository;
-import com.mrlonis.springdataoperations.repositories.ProjectRepository;
+import com.mrlonis.springbootdemoafkarena.entities.AfkArenaHeroes;
+import com.mrlonis.springbootdemoafkarena.repositories.AfkArenaHeroesRepository;
+import com.mrlonis.springbootdemoafkarena.repositories.ProjectRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

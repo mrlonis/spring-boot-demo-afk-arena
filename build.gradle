@@ -3,16 +3,14 @@ plugins {
     id "idea"
     id "jacoco"
     id "org.springframework.boot" version "2.2.13.RELEASE"
-    id "io.spring.dependency-management" version "1.0.10.RELEASE"
     id "io.freefair.lombok" version "5.3.0"
     id "org.flywaydb.flyway" version "6.5.7"
-    id "org.sonarqube" version "3.1"
 }
 
-group = 'com.mrlonis.springdataoperations'
+group = 'com.mrlonis.springbootdemoafkarena'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 jacoco {
     toolVersion = "0.8.5"
@@ -33,10 +31,6 @@ task restartDocker {
 test {
     finalizedBy jacocoTestReport
     dependsOn restartDocker
-}
-
-task unitTest(type: Test) {
-    exclude '**/integration/**'
 }
 
 jacocoTestReport {
@@ -84,44 +78,22 @@ check {
     dependsOn jacocoTestCoverageVerification
 }
 
-task hooks(type: Copy) {
-    from file("$projectDir/hooks/commit-msg")
-    into file("$projectDir/.git/hooks")
-    doLast {
-        println("Script copied to .git/hooks")
-    }
-}
-
-sonarqube {
-    properties {
-        property "sonar.exclusions", filesToExcludeFromCoverage
-    }
-}
-
-project.tasks["sonarqube"].dependsOn "build"
-
 bootRun {
     systemProperties = System.properties as Map<String, ?>
 }
 
 build {
     dependsOn jacocoTestReport
-    dependsOn hooks
 }
 
 repositories {
     mavenCentral()
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR9"
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:3.1.6.RELEASE"
-        mavenBom "org.springframework.boot:spring-boot-dependencies:2.2.13.RELEASE"
-    }
-}
-
 dependencies {
+    implementation platform("org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR11")
+    implementation platform("org.springframework.boot:spring-boot-dependencies:2.2.13.RELEASE")
+
     implementation 'com.microsoft.sqlserver:mssql-jdbc:7.0.0.jre8'
     implementation 'com.zaxxer:HikariCP'
     implementation 'org.flywaydb:flyway-core'

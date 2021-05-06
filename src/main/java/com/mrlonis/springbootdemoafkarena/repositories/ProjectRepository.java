@@ -1,6 +1,6 @@
-package com.mrlonis.springdataoperations.repositories;
+package com.mrlonis.springbootdemoafkarena.repositories;
 
-import com.mrlonis.springdataoperations.entities.ProjectEntity;
+import com.mrlonis.springbootdemoafkarena.entities.ProjectEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

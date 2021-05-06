@@ -1,7 +1,7 @@
-package com.mrlonis.springdataoperations.controllers;
+package com.mrlonis.springbootdemoafkarena.controllers;
 
-import com.mrlonis.springdataoperations.entities.AfkArenaHeroes;
-import com.mrlonis.springdataoperations.services.AfkArenaHeroesService;
+import com.mrlonis.springbootdemoafkarena.entities.AfkArenaHeroes;
+import com.mrlonis.springbootdemoafkarena.services.AfkArenaHeroesService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
