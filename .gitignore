@@ -1,0 +1,16 @@
+### Folder ###
+/.gradle/
+/.idea/**
+!/.idea/codeStyles/
+!/.idea/codeStyles/codeStyleConfig.xml
+!/.idea/codeStyles/Project.xml
+!/.idea/dictionaries/
+!/.idea/dictionaries/**
+/.settings/
+/bin/
+/build/
+
+### Files ###
+.DS_Store
+.classpath
+.project
