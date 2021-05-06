@@ -5,6 +5,7 @@ CREATE TABLE AfkArena_Heroes
     AscensionLevel nvarchar(2) ,
     OnCrystal bit NOT NULL ,
     Copies smallint NOT NULL ,
+    ImageURL nvarchar(200) ,
     CONSTRAINT AfkArena_Heroes_PrimaryKey PRIMARY KEY  CLUSTERED (HeroId ASC),
     CONSTRAINT AfkArena_Heroes_UniqueHeroes UNIQUE (HeroName  ASC, AscensionLevel  ASC)
 )

@@ -1,0 +1,9 @@
+# Folders
+/shelf/
+
+# Files
+*.iml
+libraries-with-intellij-classes.xml
+misc.xml
+uiDesigner.xml
+workspace.xml
