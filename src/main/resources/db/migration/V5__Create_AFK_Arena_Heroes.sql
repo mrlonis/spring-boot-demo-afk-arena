@@ -50,4 +50,18 @@ GO
 INSERT INTO AfkArena_Heroes
     (FactionId, HeroRarity, HeroImageUrl, HeroName, TypeId, ClassId, RoleId)
 VALUES
-    (1, 'Ascended', 'https://static.wikia.nocookie.net/afk-arena/images/3/31/Uhlan.jpg', 'Estrilda - Knight Of Valor', 1, 1, 1);
+    (1, 'Ascended', 'https://static.wikia.nocookie.net/afk-arena/images/3/31/Uhlan.jpg', 'Estrilda - Knight Of Valor', 1, 1, 1),
+    (1, 'Ascended', '', 'Belinda - Beam Of Hope', 2, 2, 2),
+    (1, 'Ascended', '', 'Raine - Death''s Denier', 3, 3, 3),
+    (1, 'Ascended', '', 'Rosaline - The Kind', 2, 3, 3),
+    (1, 'Ascended', '', 'Lucius - Lightbringer', 1, 4, 4),
+    (1, 'Ascended', '', 'Thane - The Exalted', 3, 5, 5),
+    (1, 'Ascended', '', 'Fawkes - Death''s Defeat', 3, 5, 6),
+    (1, 'Ascended', '', 'Hendrik - The Defender', 1, 4, 7),
+    (1, 'Ascended', '', 'Rowan - The Roamer', 2, 3, 3),
+    (1, 'Ascended', '', 'Gwyneth - The Fair Maiden', 1, 5, 8),
+    (1, 'Ascended', '', 'Rigby - The Brewmaster', 1, 1, 7),
+    (1, 'Ascended', '', 'Cecilia - Purger of Sins', 3, 5, 5),
+    (1, 'Ascended', '', 'Oscar - The True Gentleman', 3, 5, 5),
+    (1, 'Ascended', '', 'Eluard - Protector of Souls', 2, 2, 2),
+    (1, 'Ascended', '', 'Peggy - The Precious Pearl', 2, 3, 4);

@@ -51,17 +51,17 @@ public class AfkArenaHeroes implements ProjectEntity, Serializable {
 
     @ManyToOne
     @JoinColumn(name = "FactionId", referencedColumnName = "FactionId", insertable = false, updatable = false, nullable = false)
-    private Faction faction;
+    private Faction heroFaction;
 
     @ManyToOne
     @JoinColumn(name = "TypeId", referencedColumnName = "TypeId", insertable = false, updatable = false, nullable = false)
-    private Type type;
+    private Type heroType;
 
     @ManyToOne
     @JoinColumn(name = "ClassId", referencedColumnName = "ClassId", insertable = false, updatable = false, nullable = false)
-    private Class afkClass;
+    private Class heroClass;
 
     @ManyToOne
     @JoinColumn(name = "RoleId", referencedColumnName = "RoleId", insertable = false, updatable = false, nullable = false)
-    private Role role;
+    private Role heroRole;
 }
