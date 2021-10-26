@@ -2,8 +2,9 @@ plugins {
     id "java"
     id "idea"
     id "jacoco"
-    id "org.springframework.boot" version "2.2.13.RELEASE"
-    id "io.freefair.lombok" version "5.3.0"
+    id "org.springframework.boot" version "2.5.6"
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id "io.freefair.lombok" version "6.2.0"
     id "org.flywaydb.flyway" version "6.5.7"
 }
 
@@ -13,7 +14,7 @@ sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
 jacoco {
-    toolVersion = "0.8.5"
+    toolVersion = "0.8.7"
 }
 
 def filesToExcludeFromCoverage = [""]
@@ -35,9 +36,11 @@ test {
 
 jacocoTestReport {
     dependsOn test
+
     reports {
-        xml.enabled = true
-        csv.enabled = false
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
 
     afterEvaluate {
@@ -62,11 +65,16 @@ jacocoTestCoverageVerification {
                 minimum = 0.00
             }
         }
+
         rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+
             limit {
-                counter = 'BRANCH'
-                value = 'COVEREDRATIO'
-                minimum = 0.00
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
             }
         }
     }
@@ -88,14 +96,10 @@ build {
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
-    implementation platform("org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR11")
-    implementation platform("org.springframework.boot:spring-boot-dependencies:2.2.13.RELEASE")
-
-    implementation 'com.microsoft.sqlserver:mssql-jdbc:7.0.0.jre8'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:7.4.1.jre11'
     implementation 'com.zaxxer:HikariCP'
     implementation "io.springfox:springfox-boot-starter:3.0.0"
     implementation 'org.flywaydb:flyway-core'
@@ -104,8 +108,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-integration'
     implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
     implementation 'org.springframework.integration:spring-integration-core'
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     testImplementation 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
