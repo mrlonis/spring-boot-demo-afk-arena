@@ -13,6 +13,12 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
+tasks.withType(JavaCompile) {
+    options.warnings = true
+    options.deprecation = true
+    options.compilerArgs << "-Xlint:unchecked"
+}
+
 jacoco {
     toolVersion = "0.8.7"
 }
@@ -23,13 +29,14 @@ task restartDocker {
     doLast {
         exec {
             //commandLine 'sh', './scripts/restartDocker.sh'
-            workingDir = file('./scripts/')
-            commandLine = ['cmd', '/C', 'restartDocker', 'restartDocker.bat']
+            workingDir = file('./')
+            commandLine = ['cmd', '/C', 'docker-compose up -d']
         }
     }
 }
 
 test {
+    useJUnitPlatform()
     finalizedBy jacocoTestReport
     dependsOn restartDocker
 }
@@ -99,16 +106,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.microsoft.sqlserver:mssql-jdbc:7.4.1.jre11'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:9.4.0.jre11'
     implementation 'com.zaxxer:HikariCP'
-    implementation "io.springfox:springfox-boot-starter:3.0.0"
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-integration'
     implementation "org.springframework.boot:spring-boot-starter-web"
-//    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
     implementation 'org.springframework.integration:spring-integration-core'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -117,5 +122,4 @@ dependencies {
 
     testImplementation 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.amqp:spring-rabbit-test'
 }
